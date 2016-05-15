@@ -1,0 +1,35 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.valiro.remindme">
+
+    <uses-feature android:name="android.hardware.type.watch" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:name=".RemindMeApplication"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar.Fullscreen">
+
+        <uses-library android:name="com.google.android.wearable" android:required="false" />
+
+        <activity android:name=".Activities.ActionPickerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainPager" />
+        <activity android:name=".Activities.PersonListActivity" />
+        <activity android:name=".Activities.MultiplePersonsResolverActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <service android:name=".Provider">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
